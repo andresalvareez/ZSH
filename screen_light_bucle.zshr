@@ -1,0 +1,12 @@
+echo "percentage?"
+read v1
+
+times=$v1
+
+if [[times -gt 0]]
+	then
+		repeat times {osascript -e 'tell application "System Events"' -e 'key code 144' -e ' end tell'}
+else
+	times1 = let "times=*-1"
+	repeat times1 {osascript -e 'tell application "System Events"' -e 'key code 145' -e ' end tell'}
+fi
