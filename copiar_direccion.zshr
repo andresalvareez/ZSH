@@ -1,54 +1,17 @@
-#! /opt/homebrew/bin/zsh
-
-#con el echo sacamos la direccion en la que estamos 
-#actualmente y con el xclip lo pegamos al 
-#portapapeles
-# echo "$PWD" | xclip -selection clipboard
-
-# get the current directory
-#current_dir=$(pwd)
-#aux;
-
-# copy the current directory to the clipboard
-#echo $current_dir | xclip -selection clipboard
-
-# print a confirmation message
-#echo "The current directory '$current_dir' was copied to the clipboard"
-#echo "$current_dir"
-
-#for letra in "$current_dir"
-#do
-#    if letra == " "
-#    then
-#        letra = "\ "
-#        aux 
-#    fi
-#done
+#!/opt/homebrew/bin/zsh
 
 # Obtener la dirección de la carpeta actual
 direccion=$(pwd)
 
 # Declarar la variable vacía
-frase=""
-
-# Asignar cada letra de la dirección a la variable
-#for letra in $direccion
-#do
-    #if [ "$letra" == " " ]
-    #then
-    #    frase+="\ "
-    #else
-#        frase+=$letra
-#        frase+="l"
-    #fi
-#done
+frase="" # Variable que contendrá la dirección completa sin espacios
 for (( i=0; i<${#direccion}; i++ )); do
     #echo ${direccion:$i:1}
-    if [[ $direccion = " " ]];
+    if [[ $direccion = " " ]]; # Si el caracter es un espacio,
     then
-        frase+="\ "
+        frase+="\ " # Agregar "\ " en lugar de " "
     else
-        frase+="${direccion:$i:1}"
+        frase+="${direccion:$i:1}" # Agregar el caracter a la variable
     fi
 done
 
