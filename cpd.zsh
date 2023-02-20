@@ -12,8 +12,8 @@ if [[ $direccion =~ " " ]]; then
     echo "$direccion"
 else
     # Recorriendo la dirección letra por letra
-    for (( i=0; i<${#direccion}; i++ )); do
-    # Imprimiendo cada letra
+    for ((i = 0; i < ${#direccion}; i++)); do
+        # Imprimiendo cada letra
         echo ${direccion:$i:1}
     done
 fi
