@@ -1,4 +1,4 @@
-#!/opt/homebrew/bin/zsh
+#!/bin/bash
 
 # Obtener la dirección de la carpeta actual
 direccion=$(pwd)
