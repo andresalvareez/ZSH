@@ -1,3 +1,4 @@
+#!/bin/bash
 function dfolder {
     local dir=$1
     if [[ -d "$dir" ]]; then

@@ -1,3 +1,4 @@
+#!bin/bash
 direccion=$(pwd)
 
 # Función para cambiar los espacios por "\ "
