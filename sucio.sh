@@ -4,7 +4,7 @@
 timestamp=$(date +%Y-%m-%d_%H-%M-%S)
 
 # Le pedimos al usuario que introduzca la extensión deseada
-echo "Introduce la extensión del archivo:"
+echo "Extensión?"
 read -r extension
 
 # Creamos el nombre del archivo con el formato que has especificado
