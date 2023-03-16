@@ -16,5 +16,8 @@ ruta_archivo="$HOME/desktop/notas/$nombre_archivo"
 # Creamos el archivo vacío con la extensión especificada en la ruta indicada
 touch "$ruta_archivo"
 
-# Abrimos el archivo en el editor de texto predeterminado
-open "$ruta_archivo"
+if [[ $extension == "txt" ]]; then
+    open "$ruta_archivo" # Abrimos el archivo en el editor de texto predeterminado
+else
+    code "$ruta_archivo" # Si la extensión es otra, abrimos el archivo en VSCode
+fi
