@@ -21,3 +21,15 @@ if [[ $extension == "txt" ]]; then
 else
     code "$ruta_archivo" # Si la extensión es otra, abrimos el archivo en VSCode
 fi
+
+exa --icons "$HOME/desktop/notas"
+
+echo "Quiere borrar el archivo creado? (s/n)"
+read -r respuesta
+if [[ $respuesta == "s" ]]; then
+    rm "$ruta_archivo"
+    echo "Archivo borrado"
+    exa --icons "$HOME/desktop/notas"
+else
+    echo "Archivo no borrado"
+fi
