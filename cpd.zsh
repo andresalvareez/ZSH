@@ -1,4 +1,5 @@
 #!bin/bash
+
 direccion=$(pwd)
 
 # Función para cambiar los espacios por "\ "
@@ -11,10 +12,5 @@ if [[ $direccion =~ " " ]]; then
     # Llamando a la función para cambiar los espacios
     cambiar_espacios
     echo "$direccion"
-else
-    # Recorriendo la dirección letra por letra
-    for ((i = 0; i < ${#direccion}; i++)); do
-        # Imprimiendo cada letra
-        echo ${direccion:$i:1}
-    done
+    echo "$direccion" | pbcopy
 fi
