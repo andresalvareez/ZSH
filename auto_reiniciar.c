@@ -25,7 +25,7 @@ int main() {
     while (1) {
         // Obtiene la hora actual
         current_time = time(NULL);
-        printf("Tiempo transcurrido: %f\n", difftime(current_time, start_time));
+        printf("\nTiempo transcurrido: %f\n", difftime(current_time, start_time));
         // Calcula el tiempo transcurrido en segundos
         elapsed_time = difftime(current_time, start_time);
         // Verifica si han pasado más de 2 días (172800 segundos)
@@ -37,7 +37,7 @@ int main() {
             break;
         }
         // Espera 1 hora antes de verificar nuevamente
-        sleep(3);
+        sleep(3600);
     }
 
     return 0;
