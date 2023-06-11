@@ -32,8 +32,7 @@ int main() {
         if (elapsed_time >= 172800) {
             printf("Reiniciando...\n");
             // Ejecuta el script "reiniciar.sh"
-            system("chmod +x reiniciar.sh");
-            system("./reiniciar.sh");
+            system("zsh reiniciar.sh");
             break;
         }
         // Espera 1 hora antes de verificar nuevamente
