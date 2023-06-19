@@ -29,10 +29,12 @@ int main() {
         // Calcula el tiempo transcurrido en segundos
         elapsed_time = difftime(current_time, start_time);
         // Verifica si han pasado más de 2 días (172800 segundos)
+        
         if (elapsed_time >= 172800) {
             printf("Reiniciando...\n");
             // Ejecuta el script "reiniciar.sh"
-            system("zsh reiniciar.sh");
+            // system("zsh ~/desktop/cosas\ utiles/scripts_zshr/reiniciar.sh");
+            system("automator Library/Services/reiniciar.workflow");
             break;
         }
         // Espera 1 hora antes de verificar nuevamente
