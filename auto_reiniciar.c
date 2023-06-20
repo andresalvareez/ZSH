@@ -8,29 +8,48 @@
 
 int is_program_running();
 
-int main() {
-    if (is_program_running()) {
+int main()
+{
+    if (is_program_running())
+    {
         printf("El programa ya está en ejecución.\n");
         return 0;
     }
     printf("Programa ejecutandose");
 
     time_t start_time, current_time;
-    double elapsed_time;
+    double days, hours, minutes;
+    char input[100];
 
-    //system("clear");
-    // Obtiene la hora de inicio
+    // system("clear");
+    //  Obtiene la hora de inicio
     start_time = time(NULL);
 
-    while (1) {
+    while (1)
+    {
+        // Aqui llamamos al conmando uptime y lo guardamos en un pipe
+        FILE *pipe = popen("uptime | awk '{print $3,$5}'", "r");
+        if (!pipe) // Si no se pudo ejecutar el comando
+        {
+            printf("Error al ejecutar el comando.\n");
+            return 1;
+        }
+        fgets(input, sizeof(input), pipe);
+        sscanf(input, "%lf %lf:%lf", &days, &hours, &minutes);   // Guarda los valores del input en las variables
+        float totalHours = (days * 24) + hours + (minutes / 60); // Calcula el tiempo total en horas
+        printf("\nTiempo total encendido: %f h\n", totalHours);
+        pclose(pipe);
+
         // Obtiene la hora actual
-        current_time = time(NULL);
-        printf("\nTiempo transcurrido: %f\n", difftime(current_time, start_time));
+        // current_time = time(NULL);
+        // printf("\nTiempo transcurrido: %f\n", difftime(current_time, start_time));
         // Calcula el tiempo transcurrido en segundos
-        elapsed_time = difftime(current_time, start_time);
+        // elapsed_time = difftime(current_time, start_time);
         // Verifica si han pasado más de 2 días (172800 segundos)
-        
-        if (elapsed_time >= 172800) {
+
+        if (totalHours >= 48)
+        {
+            printf("\nTiempo total encendido: %f h\n", totalHours);
             printf("Reiniciando...\n");
             // Ejecuta el script "reiniciar.sh"
             // system("zsh ~/desktop/cosas\ utiles/scripts_zshr/reiniciar.sh");
@@ -44,7 +63,8 @@ int main() {
     return 0;
 }
 
-int is_program_running() {
+int is_program_running()
+{
     char lock_file_path[256];
     const char *home_dir = getenv("HOME");
     snprintf(lock_file_path, sizeof(lock_file_path), "%s%s", home_dir, LOCK_FILE_PATH);
@@ -54,7 +74,8 @@ int is_program_running() {
     // Intenta obtener un bloqueo exclusivo en el archivo
     int result = flock(lock_file, LOCK_EX | LOCK_NB);
 
-    if (result == -1) {
+    if (result == -1)
+    {
         // No se pudo obtener un bloqueo exclusivo, otra instancia está en ejecución
         close(lock_file);
         return 1;
