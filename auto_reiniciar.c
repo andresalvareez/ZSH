@@ -39,12 +39,20 @@ int main()
         }
         fgets(input, sizeof(input), pipe);
         sscanf(input, "%lf %lf %lf", &days, &hours, &minutes); // Guarda los valores del input en las variables
+        // en estos if lo que hago es si hay solo minutos o solo horas pues lo detecto y lo guardo en la variable correspondiente
         if (hours == 0 && minutes == 0)
         {
             minutes = days;
             days = 0;
             hours = 0;
             totalHours = minutes / 60; // Calcula el tiempo total en horas
+        }
+        else if (minutes == 0)
+        {
+            minutes = hours;
+            hours = days;
+            days = 0;
+            totalHours = (days * 24) + hours + (minutes / 60); // Calcula el tiempo total en horas
         }
         else
         {
