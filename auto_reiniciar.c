@@ -11,7 +11,7 @@ y si no lo esta ve cuanto tiempo lleva el ordenador encendido y si es mas de dos
 #include <sys/file.h>
 
 #define LOCK_FILE_PATH "/Desktop/cosas utiles/scripts_zshr/mi_programa.lock" // Ruta absoluta del archivo lock 
-#define CLAVE_LOCK 0644 // Clave de el bloqueo exclusivo del archivo lock
+#define CLAVE_LOCK 0001 // Clave de el bloqueo exclusivo del archivo lock
 const char *command = "uptime | awk -F'( |,|:)+' '{if ($5 == \"day\" || $5 == \"days\") print $4,$6,$7; else if ($5 == \"min\" || $5 == \"mins\")print $4; else print $4,$5 }'";
 
 //** Prototipado de las funciones **//
