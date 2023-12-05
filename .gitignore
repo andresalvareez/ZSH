@@ -2,5 +2,6 @@ auto_reiniciar.c.out
 .DS_Store
 auto_reiniciar
 prueva.c
-iconos.c
-iconos.c
+texto_para_script.txt:w
+.deepsource.toml
+
