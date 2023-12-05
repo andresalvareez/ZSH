@@ -49,7 +49,7 @@ int main()
 
         totalHours = totalhoras(hours, minutes, days);
 
-        if (totalHours >= 48)
+        if (totalHours >= 120)
         {
             printf("\nTiempo total encendido: %f h\n", totalHours);
             printf("Reiniciando...\n");
