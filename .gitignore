@@ -3,6 +3,9 @@ auto_reiniciar.c.out
 auto_reiniciar
 prueva.c
 .deepsource.toml
-
 texto_para_script.txt
 out
+sumar_numeros_fich.dSYM
+mi_programa_para_teclado.lock
+.vscode
+hide_dock.scpt
